@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\CQS\Base\HauteCouture.Shared.CQS.csproj" />
+    <ProjectReference Include="..\Applications\Handlers\HauteCouture.Example.Applications.Handlers.csproj" />
+    <ProjectReference Include="..\Infrastructures\DataAccess\HauteCouture.Example.Infrastuctures.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

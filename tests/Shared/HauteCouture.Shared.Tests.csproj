@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net10.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+	<IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="coverlet.collector" Version="10.0.1">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+	<PackageReference Include="coverlet.msbuild" Version="10.0.1">
+	  <PrivateAssets>all</PrivateAssets>
+	  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+	<PackageReference Include="FluentAssertions" Version="8.10.0" />
+	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+	<PackageReference Include="xunit" Version="2.9.3" />
+	<PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\..\src\Shared\Common\Exceptions\HauteCouture.Shared.Common.Exceptions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Using Include="Xunit" />
+  </ItemGroup>
+
+  <!-- Test coverage settings -->
+  <PropertyGroup>
+	<CollectCoverage>true</CollectCoverage>
+	<CoverletOutputFormat>cobertura</CoverletOutputFormat>
+	<CoverletOutput>../TestResults/Coverage</CoverletOutput>
+	<ExcludeByAttribute>Obsolete;GeneratedCodeAttribute;CompilerGeneratedAttribute</ExcludeByAttribute>
+	<ExcludeByFile>**/Generated/**/*.cs</ExcludeByFile>
+  </PropertyGroup>
+
+  <!-- Generate coverage report -->
+  <Target 
+	Name="GenerateCoverageReport" 
+	AfterTargets="GenerateCoverageResultAfterTest">
+	<Exec
+	  Command="reportgenerator -reports:$(CoverletOutput)*.xml -targetdir:$(CoverletOutput) -reporttypes:Html"
+	  ContinueOnError="true" />
+  </Target>
+
+</Project>

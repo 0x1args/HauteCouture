@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net10.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" />
+	<PackageReference Include="Microsoft.AspNetCore.Http.Extensions" />
+	<PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+	<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" />
+	<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+	<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
+	<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+	<PackageReference Include="Microsoft.OpenApi" />
+	<PackageReference Include="Npgsql" />
+	<PackageReference Include="Serilog.AspNetCore" />
+	<PackageReference Include="Serilog.Enrichers.Environment" />
+	<PackageReference Include="Serilog.Enrichers.Process" />
+	<PackageReference Include="Serilog.Enrichers.Thread" />
+	<PackageReference Include="Serilog.Settings.Configuration" />
+	<PackageReference Include="Serilog.Sinks.Console" />
+	<PackageReference Include="Serilog.Sinks.Seq" />
+	<PackageReference Include="Swashbuckle.AspNetCore" />
+	<PackageReference Include="FluentValidation" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Folder Include="Modules\Authorization\" />
+	<Folder Include="Modules\Swagger\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Authorization\HauteCouture.Shared.Common.Authorization.csproj" />
+    <ProjectReference Include="..\Common\Exceptions\HauteCouture.Shared.Common.Exceptions.csproj" />
+    <ProjectReference Include="..\CQS\Abstractions\HauteCouture.Shared.CQS.Abstractions.csproj" />
+    <ProjectReference Include="..\Domain\HauteCouture.Shared.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

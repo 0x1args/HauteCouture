@@ -1,0 +1,88 @@
+<Solution>
+  <Folder Name="/docker/">
+    <File Path="../../docker/docker-compose.yml" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Example/" />
+  <Folder Name="/src/Example/Applications/" />
+  <Folder Name="/src/Example/Applications/AppServices/">
+    <Project Path="../Example/Applications/AppServices/HauteCouture.Example.Applications.AppServices.csproj" />
+  </Folder>
+  <Folder Name="/src/Example/Applications/Handlers/">
+    <Project Path="../Example/Applications/Handlers/HauteCouture.Example.Applications.Handlers.csproj" />
+  </Folder>
+  <Folder Name="/src/Example/Contracts/">
+    <Project Path="../Example/Contracts/HauteCouture.Example.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/src/Example/Domain/">
+    <Project Path="../Example/Domain/HauteCouture.Example.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Example/HostSide/" />
+  <Folder Name="/src/Example/HostSide/Migrations/">
+    <Project Path="../Example/HostSide/Migrations/HauteCouture.Example.HostSide.Private.Migrations.csproj" />
+  </Folder>
+  <Folder Name="/src/Example/HostSide/WebApi/">
+    <Project Path="../Example/HostSide/WebApi/HauteCouture.Example.HostSide.Public.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/src/Example/Infrastructures/" />
+  <Folder Name="/src/Example/Infrastructures/DataAccess/">
+    <Project Path="../Example/Infrastructures/DataAccess/HauteCouture.Example.Infrastuctures.DataAccess.csproj" />
+  </Folder>
+  <Folder Name="/src/Example/Providers/">
+    <Project Path="../Example/Providers/HauteCouture.Example.Providers.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/" />
+  <Folder Name="/src/Shared/Common/" />
+  <Folder Name="/src/Shared/Common/Authorization/">
+    <Project Path="../Shared/Common/Authorization/HauteCouture.Shared.Common.Authorization.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/Common/Exceptions/">
+    <Project Path="../Shared/Common/Exceptions/HauteCouture.Shared.Common.Exceptions.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/Common/Pagination/">
+    <Project Path="../Shared/Common/Pagination/HauteCouture.Shared.Common.Pagination.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/Common/Specifications/" />
+  <Folder Name="/src/Shared/CQS/" />
+  <Folder Name="/src/Shared/CQS/Abstractions/">
+    <Project Path="../Shared/CQS/Abstractions/HauteCouture.Shared.CQS.Abstractions.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/CQS/Base/">
+    <Project Path="../Shared/CQS/Base/HauteCouture.Shared.CQS.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/CQS/Primitives/">
+    <Project Path="../Shared/CQS/Primitives/HauteCouture.Shared.CQS.Primitives.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/Databases/" />
+  <Folder Name="/src/Shared/Databases/Mongo/" />
+  <Folder Name="/src/Shared/Databases/Mongo/Abstractions/" />
+  <Folder Name="/src/Shared/Databases/Mongo/Base/" />
+  <Folder Name="/src/Shared/Databases/Postgres/" />
+  <Folder Name="/src/Shared/Databases/Postgres/Abstractions/">
+    <Project Path="../Shared/Databases/Postgres/Abstractions/HauteCouture.Shared.Databases.Postgres.Abstractions.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/Databases/Postgres/Base/">
+    <Project Path="../Shared/Databases/Postgres/Base/HauteCouture.Shared.Databases.Postgres.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/Databases/Postgres/Migrations/">
+    <Project Path="../Shared/Databases/Postgres/Migrations/HauteCouture.Shared.Databases.Postgres.Migrations.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/Domain/">
+    <Project Path="../Shared/Domain/HauteCouture.Shared.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/WebApi/">
+    <Project Path="../Shared/WebApi/HauteCouture.Shared.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/src/Solution/">
+    <File Path="../.editorconfig" />
+    <File Path="../Directory.Build.props" />
+    <File Path="../Directory.Packages.props" />
+    <File Path="../global.json" />
+  </Folder>
+  <Folder Name="/tests/">
+    <File Path="../../tests/README.md" />
+  </Folder>
+  <Folder Name="/tests/Shared/">
+    <Project Path="../../tests/Shared/HauteCouture.Shared.Tests.csproj" />
+  </Folder>
+</Solution>

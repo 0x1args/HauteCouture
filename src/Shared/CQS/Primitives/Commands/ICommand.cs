@@ -1,0 +1,14 @@
+using MediatR;
+
+namespace HauteCouture.Shared.CQS.Primitives.Commands;
+
+/// <summary>
+///     Indicates the command without returning a result.
+/// </summary>
+public interface ICommand : IRequest;
+
+/// <summary>
+///     Indicates the command with the expected result.
+/// </summary>
+/// <typeparam name="TResponse">Type of command result.</typeparam>
+public interface ICommand<TResponse> : IRequest<TResponse>;
