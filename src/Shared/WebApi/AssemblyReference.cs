@@ -7,6 +7,8 @@ namespace HauteCouture.Shared.WebApi;
 /// </summary>
 public static class SharedWebApiAssemblyReference
 {
-    /// <summary>Assembly reference. </summary>
+    /// <summary>
+    ///     Assembly reference.
+    /// </summary>
     public static readonly Assembly Assembly = typeof(Assembly).Assembly;
 }

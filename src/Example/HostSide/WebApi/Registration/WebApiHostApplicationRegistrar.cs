@@ -12,7 +12,7 @@ public static class WebApiHostApplicationRegistrar
     extension(WebApplication app)
     {
         /// <summary>
-        /// Configures the HTTP request pipeline for the Example web API.
+        ///     Configures the HTTP request pipeline for the Example web API.
         /// </summary>
         /// <returns>The same <see cref="WebApplication"/> instance for chaining.</returns>
         public WebApplication UseExampleWebApi()

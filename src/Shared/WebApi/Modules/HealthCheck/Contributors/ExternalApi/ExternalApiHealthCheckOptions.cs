@@ -44,6 +44,8 @@ public sealed class ExternalApiHealthCheckOptions
     /// </summary>
     public HealthStatus FailureStatus { get; init; } = HealthStatus.Unhealthy;
 
-    /// <summary>Tags associated with this probe.</summary>
+    /// <summary>
+    ///     Tags associated with this probe.
+    /// </summary>
     public string[] Tags { get; init; } = [HealthCheckTag.Readiness];
 }

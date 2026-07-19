@@ -1,4 +1,5 @@
-﻿using HauteCouture.Shared.Databases.Postgres.Abstractions.Transactions;
+﻿using HauteCouture.Shared.CQS.Primitives.Commands;
+using HauteCouture.Shared.Databases.Postgres.Abstractions.Transactions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +13,7 @@ namespace HauteCouture.Shared.CQS.Behaviors;
 public sealed class TransactionalBehavior<TRequest, TResponse>(
     ITransactionalScope transactionalScope)
     : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : IRequest<TResponse>
+    where TRequest : IRequest<TResponse>, IBaseCommand
 {
     /// <inheritdoc/>
     public async Task<TResponse> Handle(

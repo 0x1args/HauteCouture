@@ -26,7 +26,7 @@ services.AddPostgres<AppDbContext, AppDbContextConfigurator>(poolSize: 256, repo
 });
 ```
 
-The DbContext configurator applies settings with default values, and the DbContext configuration is fully open to changes through virtual properties and methods — simply override them as needed. What the configurator sets up by default: `CommandTimeoutSeconds` (60s); `MaxBatchSize` (256); `MaxRetryCount` (3); `MaxRetryDelay` (10s); `SlowQueryThreshold` (2s); `EnableSensitiveDataLogging` (false); `EnableDetailedErrors` (false).
+The DbContext configurator applies settings with default values, and the DbContext configuration is fully open to changes through virtual properties and methods, simply override them as needed. What the configurator sets up by default: `CommandTimeoutSeconds` (60s); `MaxBatchSize` (256); `MaxRetryCount` (3); `MaxRetryDelay` (10s); `SlowQueryThreshold` (2s); `EnableSensitiveDataLogging` (false); `EnableDetailedErrors` (false).
 
 | Property | Default | Description |
 |---|---|---|
@@ -43,13 +43,13 @@ The configurator also applies snake_case naming conventions for all tables and c
 
 ### Repository
 
-By default, the generic `IRepository<TEntity, TId>` is used for data access. It combines the `ICrudRepository<TEntity>` interface (for data modification operations) and the `IQueryRepository<TEntity, TId>` interface (for data retrieval operations). All data modification methods automatically call `SaveChangesAsync`, removing the need for an explicit UnitOfWork. The repository can be used directly in handlers or services without the need to create entity-specific implementations with repetitive logic. To use this interface, add the `Shared.Databases.Postgres.Abstractions` package.
+By default, the generic `IRepository<TEntity, TId>` is used for data access. It combines the `ICrudRepository<TEntity>` interface (for data modification operations) and the `IQueryRepository<TEntity, TId>` interface (for data retrieval operations). In addition, this combination also includes the `ICompiledQueryRepository` interface for working with compiled queries. All data modification methods automatically call `SaveChangesAsync`, removing the need for an explicit UnitOfWork. The repository can be used directly in handlers or services without the need to create entity-specific implementations with repetitive logic. By default, the generic `IRepository<TEntity, TId>` is used for data access. It combines the `ICrudRepository<TEntity>` interface (for data modification operations) and the `IQueryRepository<TEntity, TId>` interface (for data retrieval operations). In addition, this combination also includes the `ICompiledQueryRepository` interface for working with compiled queries. All data modification methods automatically call `SaveChangesAsync`, removing the need for an explicit UnitOfWork. The repository can be used directly in handlers or services without the need to create entity-specific implementations with repetitive logic. Additionally, Microsoft's official documentation states that `DbContext` is a combination of the Unit of Work and Repository patterns ([DbContext Class — Microsoft Learn](https://learn.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext)), and the `IRepository<TEntity, TId>` layer simply provides a set of ready-made operations on top of it. To use this interface, add the `Shared.Databases.Postgres.Abstractions` package. To use this interface, add the `Shared.Databases.Postgres.Abstractions` package.
 
 ### Pagination
 
-`IQueryRepository<TEntity, TId>` contains two `PageAsync` overloads for offset-based pagination using `PagedFilter`. Under the hood, two round-trips to the database are performed: one for the total record count (`COUNT`), and one for the page items (`SKIP`/`TAKE`). For large tables where pagination depth is unpredictable — keyset pagination is recommended, which eliminates performance degradation on deep pages.
+`IQueryRepository<TEntity, TId>` contains two `PageAsync` overloads for offset-based pagination using `PagedFilter`. Under the hood, two round-trips to the database are performed: one for the total record count (`COUNT`), and one for the page items (`SKIP`/`TAKE`). For large tables where pagination depth is unpredictable keyset pagination is recommended, which eliminates performance degradation on deep pages.
 
-Keyset pagination uses the last seen value as a cursor instead of counting rows to skip, which allows the database to perform an index seek directly to the required position. This provides constant query performance regardless of how deep into the dataset the caller has navigated. The approach also eliminates the `COUNT` round-trip entirely — instead, `pageSize + 1` records are fetched, and if more than `pageSize` are returned, it means there is a next page.
+Keyset pagination uses the last seen value as a cursor instead of counting rows to skip, which allows the database to perform an index seek directly to the required position. This provides constant query performance regardless of how deep into the dataset the caller has navigated. The approach also eliminates the `COUNT` round-trip entirely instead, `pageSize + 1` records are fetched, and if more than `pageSize` are returned, it means there is a next page.
 
 ```csharp
 // Simple case, unique sort key.
@@ -81,7 +81,7 @@ Keyset pagination is available as a `ToKeysetPageAsync` extension method on `IQu
 
 ### Transactions
 
-There is an `ITransactionalScope` with a single `BeginTransactionAsync` method for working with transactions. If a transaction is already open on the current `DbContext` — a wrapper over the existing one is returned rather than a new nested transaction. By default, `ITransactionalScope` is used in `TransactionalBehavior` from the `Shared.CQS` package — all command handlers are automatically wrapped in a transaction, so manual transaction management is not needed in the vast majority of cases.
+There is an `ITransactionalScope` with a single `BeginTransactionAsync` method for working with transactions. If a transaction is already open on the current `DbContext`, a wrapper over the existing one is returned rather than a new nested transaction. By default, `ITransactionalScope` is used in `TransactionalBehavior` from the `Shared.CQS` package, all command handlers are automatically wrapped in a transaction, so manual transaction management is not needed in the vast majority of cases.
 
 ### Converters
 

@@ -4,7 +4,7 @@ Contains the necessary tools for building the HTTP layer of a service: a modular
 
 ### Registration
 
-To register all the tools in DI, add the `Shared.WebApi` package to the registration point and call `AddWebModules` with a configuration delegate, passing the ASP.NET Core `IConfiguration`, `IWebHostEnvironment`, and `IHostBuilder` — some modules (e.g. `LoggingWebModule`) need to configure the host itself and not just the DI container. Every module is opt-in and disabled by default:
+To register all the tools in DI, add the `Shared.WebApi` package to the registration point and call `AddWebModules` with a configuration delegate, passing the ASP.NET Core `IConfiguration`, `IWebHostEnvironment`, and `IHostBuilder`, some modules (e.g. `LoggingWebModule`) need to configure the host itself and not just the DI container. Every module is opt-in and disabled by default:
 
 ```csharp
 // Enable a specific subset of modules.
@@ -40,7 +40,7 @@ builder.Services.AddWebModules(
         .WithModules(new MyCustomModule()));
 ```
 
-Modules discovered via `FromAssemblies` or supplied via `WithModules` are combined with the built-in ones enabled through `UseX()`, deduplicated by type, and sorted by `IWebModule.Order` before `MountServices` runs — the registration method call order does not matter, only each module's `Order` value does.
+Modules discovered via `FromAssemblies` or supplied via `WithModules` are combined with the built-in ones enabled through `UseX()`, deduplicated by type, and sorted by `IWebModule.Order` before `MountServices` runs, the registration method call order does not matter, only each module's `Order` value does.
 
 Each built-in module can also be registered independently of `AddWebModules`, without a `WebApiOptions` delegate:
 

@@ -1,6 +1,6 @@
-﻿using HauteCouture.Example.Applications.AppServices;
-using HauteCouture.Example.Applications.AppServices.Abstractions;
-using HauteCouture.Example.Applications.Handlers;
+﻿using HauteCouture.Example.Applications.Handlers;
+using HauteCouture.Example.Applications.Services;
+using HauteCouture.Example.Applications.Services.Abstractions;
 using HauteCouture.Example.Infrastuctures.DataAccess.Configurators;
 using HauteCouture.Example.Infrastuctures.DataAccess.DbContexts;
 using HauteCouture.Shared.CQS.Registration;

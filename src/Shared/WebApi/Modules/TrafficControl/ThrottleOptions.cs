@@ -7,7 +7,9 @@ public sealed class ThrottleOptions
 {
     public const string SectionName = "Throttle";
 
-    /// <summary>Maximum number of requests allowed per second. </summary>
+    /// <summary>
+    ///     Maximum number of requests allowed per second. 
+    /// </summary>
     public int RequestsPerSecond { get; init; } = 50;
 
     /// <summary>

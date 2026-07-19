@@ -187,43 +187,37 @@ public static class WebApiRegistrar
             // Adds the logging web module. Requires calling the UseLogging() method.
             modules.Add(new LoggingWebModule());
         }
-
         if (options.CorrelationEnabled)
         {
             // Adds the correlation ID web module. Requires calling the UseCorrelation() method.
             modules.Add(new CorrelationWebModule());
         }
-
         if (options.CachingEnabled)
         {
             // Adds the caching web module. Requires calling the UseCaching() method.
             modules.Add(new CachingWebModule());
         }
-
         if (options.TrafficControlEnabled)
         {
             // Adds the traffic control web module. Requires calling the UseTrafficControl() method.
             modules.Add(new TrafficControlWebModule());
         }
-
         if (options.ExceptionHandlingEnabled)
         {
             // Adds the global exception handling web module. Requires calling the UseExceptionHandling() method.
             modules.Add(new ExceptionHandlingWebModule());
         }
-
         if (options.HealthCheckEnabled)
         {
             // Adds the health check web module. Requires calling the UseHealthChecks() method.
             modules.Add(new HealthCheckWebModule(options.HealthCheckOptions!));
         }
-
         if (options.SwaggerEnabled)
         {
             // TODO: Add Swagger web module implementation.
         }
-
-        // TODO: Add health checks, add CORS, add tenant id provider (in separate tenant management service).
+        // TODO: Add health checks, add CORS, add tenant id provider (in separate tenant management service),
+        // add API versioning;
 
         if (options.Assemblies.Length > 0)
         {

@@ -14,7 +14,9 @@ public sealed class DiagnosticBehavior<TRequest, TResponse>(
     : IPipelineBehavior<TRequest, TResponse>
     where TRequest : notnull, IRequest<TResponse>
 {
-    /// <summary>Name of the <see cref="ActivitySource"/> used for all CQS pipeline spans.</summary>
+    /// <summary>
+    ///     Name of the <see cref="ActivitySource"/> used for all CQS pipeline spans.
+    /// </summary>
     public const string ActivitySourceName = "HauteCouture.CQS";
 
     private static readonly ActivitySource Source = new(ActivitySourceName);

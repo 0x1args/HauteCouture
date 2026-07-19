@@ -16,10 +16,14 @@ public sealed class LoggingBehavior<TRequest, TResponse>(
     : IPipelineBehavior<TRequest, TResponse>
     where TRequest : notnull, IRequest<TResponse>
 {
-    /// <summary>Default fallback value used when HTTP context data is unavailable.</summary>
+    /// <summary>
+    ///     Default fallback value used when HTTP context data is unavailable.
+    /// </summary>
     private const string Undefined = "Undefined";
 
-    /// <summary>JSON serialization options used for logging payloads.</summary>
+    /// <summary>
+    ///     JSON serialization options used for logging payloads.
+    /// </summary>
     private static readonly JsonSerializerOptions SerializerOptions = new()
     { 
         WriteIndented = false 
@@ -58,7 +62,7 @@ public sealed class LoggingBehavior<TRequest, TResponse>(
     }
 
     /// <summary>
-    /// Attempts to serialize the specified payload to JSON for logging purposes.
+    ///     Attempts to serialize the specified payload to JSON for logging purposes.
     /// </summary>
     private static string TrySerialize<TPayload>(
         TPayload payload,

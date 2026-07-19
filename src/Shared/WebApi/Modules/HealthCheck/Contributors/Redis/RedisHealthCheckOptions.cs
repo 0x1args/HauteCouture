@@ -12,8 +12,8 @@ public sealed class RedisHealthCheckOptions
     /// </summary>
     public string Name { get; init; } = "redis";
 
-    ///     <summary>
-    /// Redis connection string used by the probe.
+    /// <summary>
+    ///     Redis connection string used by the probe.
     /// </summary>
     public required string ConnectionString { get; init; }
 

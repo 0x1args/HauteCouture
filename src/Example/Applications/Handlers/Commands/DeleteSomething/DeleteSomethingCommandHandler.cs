@@ -1,4 +1,4 @@
-﻿using HauteCouture.Example.Applications.AppServices.Abstractions;
+﻿using HauteCouture.Example.Applications.Services.Abstractions;
 using HauteCouture.Shared.CQS.Abstractions.Handlers;
 
 namespace HauteCouture.Example.Applications.Handlers.Commands.DeleteSomething;

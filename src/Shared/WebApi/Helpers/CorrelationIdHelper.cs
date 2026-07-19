@@ -7,13 +7,19 @@ namespace HauteCouture.Shared.WebApi.Helpers;
 /// </summary>
 public static class CorrelationIdHelper
 {
-    /// <summary>Maximum allowed length for a correlation ID value.</summary>
+    /// <summary>
+    ///     Maximum allowed length for a correlation ID value.
+    /// </summary>
     private const int MaxLength = 128;
 
-    /// <summary>Default HTTP header name used to propagate the correlation ID.</summary>
+    /// <summary>
+    ///     Default HTTP header name used to propagate the correlation ID.
+    /// </summary>
     public const string DefaultHeaderName = "X-Correlation-Id";
 
-    /// <summary>Alternative header name used by some reverse proxies.</summary>
+    /// <summary>
+    ///     Alternative header name used by some reverse proxies.
+    /// </summary>
     public const string RequestIdHeaderName = "X-Request-Id";
 
     /// <summary>

@@ -1,5 +1,5 @@
-﻿using HauteCouture.Example.Applications.AppServices.Abstractions;
-using HauteCouture.Example.Applications.Handlers.Queries.GetSomething;
+﻿using HauteCouture.Example.Applications.Handlers.Queries.GetSomething;
+using HauteCouture.Example.Applications.Services.Abstractions;
 using HauteCouture.Shared.CQS.Abstractions.Handlers;
 using Microsoft.Extensions.Caching.Distributed;
 

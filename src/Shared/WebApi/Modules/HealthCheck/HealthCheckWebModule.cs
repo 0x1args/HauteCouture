@@ -1,8 +1,8 @@
 ﻿using HauteCouture.Shared.WebApi.Modules.Base;
 using HauteCouture.Shared.WebApi.Modules.HealthCheck.Contributors;
+using HauteCouture.Shared.WebApi.Modules.HealthCheck.Contributors.ExternalApi;
 using HauteCouture.Shared.WebApi.Modules.HealthCheck.Contributors.Postgres;
 using HauteCouture.Shared.WebApi.Modules.HealthCheck.Contributors.Redis;
-using HauteCouture.Shared.WebApi.Modules.HealthCheck.Contributors.WebApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;

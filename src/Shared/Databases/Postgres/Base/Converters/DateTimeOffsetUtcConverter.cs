@@ -13,13 +13,19 @@ public sealed class DateTimeOffsetUtcConverter(
         v => kind == DateTimeKind.Local ? v.ToLocalTime() : v.ToUniversalTime(),
         mappingHints)
 {
-    /// <summary>Convertor for UTC DateTimeKind. </summary>
+    /// <summary>
+    ///     Convertor for UTC DateTimeKind.
+    /// </summary>
     public static readonly DateTimeOffsetUtcConverter Utc = new(DateTimeKind.Utc);
 
-    /// <summary>Convertor for UTC Local. </summary>
+    /// <summary>
+    ///     Convertor for UTC Local. 
+    /// </summary>
     public static readonly DateTimeOffsetUtcConverter Local = new(DateTimeKind.Local);
 
-    /// <summary>Convertor for UTC Unspecified. </summary>
+    /// <summary>
+    ///     Convertor for UTC Unspecified. 
+    /// </summary>
     public static readonly DateTimeOffsetUtcConverter Unspecified = new(DateTimeKind.Unspecified);
 }
 
@@ -36,12 +42,18 @@ public sealed class NullableDateTimeOffsetUtcConverter(
             : null,
         mappingHints)
 {
-    /// <summary>Convertor for UTC DateTimeKind. </summary>
+    /// <summary>
+    ///     Convertor for UTC DateTimeKind.
+    /// </summary>
     public static readonly NullableDateTimeOffsetUtcConverter Utc = new(DateTimeKind.Utc);
 
-    /// <summary>Convertor for UTC Local. </summary>
+    /// <summary>
+    ///     Convertor for UTC Local.
+    /// </summary>
     public static readonly NullableDateTimeOffsetUtcConverter Local = new(DateTimeKind.Local);
 
-    /// <summary>Convertor for UTC Unspecified. </summary>
+    /// <summary>
+    ///     Convertor for UTC Unspecified.
+    /// </summary>
     public static readonly NullableDateTimeOffsetUtcConverter Unspecified = new(DateTimeKind.Unspecified);
 }

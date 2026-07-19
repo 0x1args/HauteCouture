@@ -1,15 +1,43 @@
 <Solution>
-  <Folder Name="/docker/">
-    <File Path="../../docker/docker-compose.yml" />
+  <Folder Name="/infrastructure/" />
+  <Folder Name="/infrastructure/docker/">
+    <File Path="../../infrastructure/docker/.env" />
+    <File Path="../../infrastructure/docker/docker-compose.infra.yaml" />
+    <File Path="../../infrastructure/docker/docker-compose.observability.yaml" />
+    <File Path="../../infrastructure/docker/docker-compose.services.yaml" />
+    <File Path="../../infrastructure/docker/README.md" />
+  </Folder>
+  <Folder Name="/infrastructure/kubernetes/">
+    <File Path="../../infrastructure/kubernetes/README.md" />
+  </Folder>
+  <Folder Name="/infrastructure/scripts/">
+    <File Path="../../infrastructure/scripts/README.md" />
+  </Folder>
+  <Folder Name="/infrastructure/scripts/unix/">
+    <File Path="../../infrastructure/scripts/unix/reset-docker-volumes.sh" />
+    <File Path="../../infrastructure/scripts/unix/run-docker-all.sh" />
+    <File Path="../../infrastructure/scripts/unix/run-docker-infra.sh" />
+    <File Path="../../infrastructure/scripts/unix/run-docker-observability.sh" />
+    <File Path="../../infrastructure/scripts/unix/stop-docker-all.sh" />
+  </Folder>
+  <Folder Name="/infrastructure/scripts/windows/">
+    <File Path="../../infrastructure/scripts/windows/reset-docker-volumes.ps1" />
+    <File Path="../../infrastructure/scripts/windows/run-docker-all.ps1" />
+    <File Path="../../infrastructure/scripts/windows/run-docker-infra.ps1" />
+    <File Path="../../infrastructure/scripts/windows/run-docker-observability.ps1" />
+    <File Path="../../infrastructure/scripts/windows/stop-docker-all.ps1" />
+  </Folder>
+  <Folder Name="/infrastructure/terraform/">
+    <File Path="../../infrastructure/terraform/README.md" />
   </Folder>
   <Folder Name="/src/" />
   <Folder Name="/src/Example/" />
   <Folder Name="/src/Example/Applications/" />
-  <Folder Name="/src/Example/Applications/AppServices/">
-    <Project Path="../Example/Applications/AppServices/HauteCouture.Example.Applications.AppServices.csproj" />
-  </Folder>
   <Folder Name="/src/Example/Applications/Handlers/">
     <Project Path="../Example/Applications/Handlers/HauteCouture.Example.Applications.Handlers.csproj" />
+  </Folder>
+  <Folder Name="/src/Example/Applications/Services/">
+    <Project Path="../Example/Applications/Services/HauteCouture.Example.Applications.Services.csproj" />
   </Folder>
   <Folder Name="/src/Example/Contracts/">
     <Project Path="../Example/Contracts/HauteCouture.Example.Contracts.csproj" />
@@ -78,6 +106,33 @@
     <File Path="../Directory.Build.props" />
     <File Path="../Directory.Packages.props" />
     <File Path="../global.json" />
+  </Folder>
+  <Folder Name="/src/TenantManagement/" />
+  <Folder Name="/src/TenantManagement/Applications/" />
+  <Folder Name="/src/TenantManagement/Applications/Handlers/">
+    <Project Path="../TenantManagement/Applications/Handlers/HauteCouture.TenantManagement.Applications.Handlers.csproj" />
+  </Folder>
+  <Folder Name="/src/TenantManagement/Applications/Services/">
+    <Project Path="../TenantManagement/Applications/Services/HauteCouture.TenantManagement.Applications.Services.csproj" />
+  </Folder>
+  <Folder Name="/src/TenantManagement/Contracts/">
+    <Project Path="../TenantManagement/Contracts/HauteCouture.TenantManagement.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/src/TenantManagement/Domain/">
+    <Project Path="../TenantManagement/Domain/HauteCouture.TenantManagement.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/TenantManagement/HostSide/">
+    <File Path="../TenantManagement/HostSide/README.md" />
+  </Folder>
+  <Folder Name="/src/TenantManagement/HostSide/WebApi/">
+    <Project Path="../TenantManagement/HostSide/WebApi/HauteCouture.TenantManagement.HostSide.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/src/TenantManagement/Infrastructures/" />
+  <Folder Name="/src/TenantManagement/Infrastructures/DataAccess/">
+    <Project Path="../TenantManagement/Infrastructures/DataAccess/HauteCouture.TenantManagement.Infrastructures.DataAccess.csproj" />
+  </Folder>
+  <Folder Name="/src/TenantManagement/Providers/">
+    <Project Path="../TenantManagement/Providers/HauteCouture.TenantManagement.Providers.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <File Path="../../tests/README.md" />

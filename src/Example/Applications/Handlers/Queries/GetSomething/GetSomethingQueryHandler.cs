@@ -1,4 +1,4 @@
-﻿using HauteCouture.Example.Applications.AppServices.Abstractions;
+﻿using HauteCouture.Example.Applications.Services.Abstractions;
 using HauteCouture.Example.Contracts.Responses;
 using HauteCouture.Shared.CQS.Abstractions.Handlers;
 

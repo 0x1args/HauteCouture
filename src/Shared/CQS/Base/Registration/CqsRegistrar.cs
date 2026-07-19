@@ -46,37 +46,31 @@ public static class CqsRegistrar
                 // Adds diagnostic/tracing behavior. Requires calling the UseDiagnostics() method.
                 services.AddDiagnosticBehavior();
             }
-
             if (cqsOptions.AuthorizationEnabled)
             {
                 // Adds authorization behavior. Requires calling the UseAuthorization() method.
                 services.AddAuthorizationBehavior();
             }
-
             if (cqsOptions.ValidationEnabled)
             {
                 // Adds validation behavior. Requires calling the UseValidation() method.
                 services.AddValidationBehavior();
             }
-
             if (cqsOptions.LoggingEnabled)
             {
                 // Adds logging behavior. Requires calling the UseLogging() method.
                 services.AddLoggingBehavior();
             }
-
             if (cqsOptions.PerformanceEnabled)
             {
                 // Adds performance tracking behavior. Requires calling the UsePerformanceTracking() method.
                 services.AddPerformanceBehavior();
             }
-
             if (cqsOptions.CachingEnabled)
             {
                 // Adds caching behavior. Requires calling the UseCaching() method.
                 services.AddCachingBehavior();
             }
-
             if (cqsOptions.TransactionsEnabled)
             {
                 // Adds transactional behavior. Requires calling the UseTransactions() method.

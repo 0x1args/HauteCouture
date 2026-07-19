@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\CQS\Abstractions\HauteCouture.Shared.CQS.Abstractions.csproj" />
-    <ProjectReference Include="..\AppServices\HauteCouture.Example.Applications.AppServices.csproj" />
+    <ProjectReference Include="..\Services\HauteCouture.Example.Applications.Services.csproj" />
   </ItemGroup>
 
 </Project>
