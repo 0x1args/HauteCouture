@@ -8,7 +8,8 @@ Docker and Docker Compose are used for containerization and local development. T
 
 ### 1. Configuring secrets
 
-Before starting anything, create an `.env` file in this folder (`infrastructure/docker`) with the values below (usernames, passwords, tokens, etc.):
+Before starting anything, create an `.env` file in this folder (`infrastructure/docker`) with the values below (usernames, passwords, tokens, etc.). Alternatively, you can generate it by running the `create-docker-env` script for your platform from `infrastructure/scripts/`, then modify the generated values as needed.
+
 
 #### 1.1 Postgres
 ```
@@ -45,7 +46,7 @@ SEQ_ADMIN_PASSWORD={your_password}
 
 For most cases, running `run-all` is the right starting point (it brings up the whole local stack in one command).
 
-**Documenation reference: https://github.com/0x1args/HauteCouture/blob/main/infrastructure/scripts/README.md**
+**Reference documenation**: https://github.com/0x1args/HauteCouture/blob/main/infrastructure/scripts/README.md
 
 ### 3. Stack overview
 

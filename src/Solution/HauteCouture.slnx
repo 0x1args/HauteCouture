@@ -14,6 +14,7 @@
     <File Path="../../infrastructure/scripts/README.md" />
   </Folder>
   <Folder Name="/infrastructure/scripts/unix/">
+    <File Path="../../infrastructure/scripts/unix/create-docker-env.sh" />
     <File Path="../../infrastructure/scripts/unix/reset-docker-volumes.sh" />
     <File Path="../../infrastructure/scripts/unix/run-docker-all.sh" />
     <File Path="../../infrastructure/scripts/unix/run-docker-infra.sh" />
@@ -21,6 +22,7 @@
     <File Path="../../infrastructure/scripts/unix/stop-docker-all.sh" />
   </Folder>
   <Folder Name="/infrastructure/scripts/windows/">
+    <File Path="../../infrastructure/scripts/windows/create-docker-env.ps1" />
     <File Path="../../infrastructure/scripts/windows/reset-docker-volumes.ps1" />
     <File Path="../../infrastructure/scripts/windows/run-docker-all.ps1" />
     <File Path="../../infrastructure/scripts/windows/run-docker-infra.ps1" />
