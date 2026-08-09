@@ -72,55 +72,56 @@ This is a dictionary of all the core terms and their meanings + the single sourc
 ```mermaid
 flowchart LR
 
+subgraph UPSTREAM["Supporting Domains (Inputs)"]
+    Staff["Staff Management"]
+    PR["Patient Registry"]
+    Lab["Laboratory"]
+end
+
+subgraph GENERIC["Generic Domains"]
+    Id["Identity"]
+    Notif["Notification"]
+    Pay["Payment Gateway"]
+end
+
 subgraph CORE["Core Domains"]
-direction LR
     Sched["Scheduling"]
     MC["Medical Care"]
 end
 
-subgraph SUPPORT["Supporting Domains"]
-direction LR
-    PR["Patient Registry"]
-    Staff["Staff Management"]
+subgraph DOWNSTREAM["Supporting Domains (Outputs)"]
+    Tenant["Tenant Provisioning"]
     Presc["Prescription"]
     Bill["Billing"]
-    Lab["Laboratory"]
-    Tenant["Tenant Provisioning"]
     Analytics["Analytics"]
 end
 
-subgraph GENERIC["Generic Domains"]
-direction LR
-    Id["Identity"]
-    Pay["Payment Gateway"]
-    Notif["Notification"]
-end
-
 Staff -->|OHS + PL + ACL| Sched
+Staff -->|Conformist| Presc
+
 PR -->|OHS + PL + ACL| Sched
 PR -->|OHS + PL + ACL| MC
-
-Sched -->|Customer / Supplier<br/>OHS + PL + ACL| MC
-
-MC -->|Customer / Supplier<br/>OHS + PL + ACL| Bill
-MC -->|Customer / Supplier<br/>OHS + PL + ACL| Presc
-
 PR -->|Conformist| Bill
-Staff -->|Conformist| Presc
+
 Lab -->|Conformist| Bill
 
-
 Id -->|OHS + PL + ACL| Sched
-Id -->|OHS + PL +ACL| MC
-
+Id -->|OHS + PL + ACL| MC
 Id -->|OHS + PL + ACL| Bill
 Id -->|OHS + PL + ACL| Tenant
-Pay -->|OHS + PL + ACL| Bill
+
 Notif -->|OHS + PL + ACL| Sched
 Notif -->|OHS + PL + ACL| Bill
 
+Pay -->|OHS + PL + ACL| Bill
+
+Sched -->|Customer / Supplier<br/>OHS + PL + ACL| MC
 Sched -->|Conformist| Analytics
+
+MC -->|Customer / Supplier<br/>OHS + PL + ACL| Bill
+MC -->|Customer / Supplier<br/>OHS + PL + ACL| Presc
 MC -->|Conformist| Analytics
+
 Bill -->|Conformist| Analytics
 
 classDef core fill:#0D1117,color:#FFFFFF,stroke:#FFFFFF,stroke-width:2px;
@@ -131,9 +132,10 @@ class Sched,MC core;
 class PR,Staff,Presc,Bill,Lab,Tenant,Analytics support;
 class Id,Pay,Notif generic;
 
-style CORE fill:none,stroke:none
-style SUPPORT fill:none,stroke:none
-style GENERIC fill:none,stroke:none
+style UPSTREAM fill:none,stroke:#A5A5A5,stroke-width:1px,stroke-dasharray: 5 5
+style DOWNSTREAM fill:none,stroke:#A5A5A5,stroke-width:1px,stroke-dasharray: 5 5
+style CORE fill:none,stroke:#FFFFFF,stroke-width:1px,stroke-dasharray: 5 5
+style GENERIC fill:none,stroke:#6E7681,stroke-width:1px,stroke-dasharray: 5 5
 
 linkStyle default stroke:#B1BAC4,stroke-width:2px,color:#FFFFFF
 ```
