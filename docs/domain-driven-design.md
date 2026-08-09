@@ -69,7 +69,7 @@ This is a dictionary of all the core terms and their meanings + the single sourc
 
 ## 3. Context Map
 
-```
+```mermaid
 flowchart LR
 
 subgraph CORE["Core Domains"]
