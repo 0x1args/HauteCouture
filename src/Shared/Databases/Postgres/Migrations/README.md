@@ -10,7 +10,7 @@ dotnet ef migrations add InitialCreate --context AppDbContext --project src\Modu
 
 ### Registration 
 
-You need to create migrations for this project E and use the `IMigrationExecutor` interface with the `MigrateAsync` method. To add this to DI, use the following method:
+You need to create migrations for this project and use the `IMigrationExecutor` interface with the `MigrateAsync` method. To add this to DI, use the following method:
 
 ```csharp
 var assembly = Assembly.GetExecutingAssembly();

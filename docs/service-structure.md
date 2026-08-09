@@ -21,7 +21,7 @@ This document describes the standard structure that every service added to the s
 
 ## 1. Domain
 
-This layer is the core of every service: it contains all definitions of the business domain. It is designed strictly around rich domain models with explicitly defined invariants. Following DDD, there are two key concepts: Strategic DDD and Tactical DDD (described below) — and every subdomain modeled in the system (usually represented by a single service) must comply with both. This layer has no dependencies on anything else in the system.
+This layer is the core of every service: it contains all definitions of the business domain. It is designed strictly around rich domain models with explicitly defined invariants. Following DDD, there are two key concepts: Strategic DDD and Tactical DDD (described below) and every subdomain modeled in the system (usually represented by a single service) must comply with both. This layer has no dependencies on anything else in the system.
 
 ### 1.1 Strategic DDD
 
@@ -29,7 +29,7 @@ Every service added to the system must be classified against a defined subdomain
 
 | Name | Description |
 |---|---|
-| **Core** | Contains the core business logic — the logic that is the actual reason the business exists and differentiates it from competitors. |
+| **Core** | Contains the core business logic, the logic that is the actual reason the business exists and differentiates it from competitors. |
 | **Generic** | Contains logic that does not define the business itself and has no unique or differentiating solutions; it implements standardized, off-the-shelf approaches. |
 | **Supporting** | Complements the core business logic and rounds out the overall business capability without being central to it. |
 
@@ -51,7 +51,7 @@ Tactical DDD defines how the business logic identified above is technically impl
 | **Entity** | A domain object with a unique identity (an `Id`) that persists throughout its lifecycle, independent of attribute changes. | Follows the same rules as Aggregate: private setters, state changes only through defined methods, a private and "clean" constructor. Created through a `Create` factory method that accepts primitive values and wraps them into Value Objects. An Entity that is not meant to be accessed from outside its Aggregate must not be exposed other than through the Aggregate Root. |
 | **Value Object** | A domain object with no identity of its own, defined entirely by its attributes; it is immutable and compared by value. Used to extract invariants and additional validation out of Entities/Aggregates. | Wraps a specific value together with all required checks and validation. The constructor must be private and "clean"; the wrapped property must have a private setter. The factory method must be strictly named `Of` and must contain all validation logic. Additional helper methods may be added where necessary. A Value Object is recommended to be modeled as a `readonly record struct` wherever this is feasible. |
 | **Invariant** | A business rule that must always hold true (e.g. "an amount cannot be negative", "the date and time a model is accessed cannot precede the date and time it was created"). | — |
-| **Domain Event** | A fact that occurred in the domain and matters to the business. It is conceptually raised by an Aggregate, but in our approach domain events are neither raised nor dispatched from within the aggregate itself — they are created and dispatched at the handler level. | Modeled as a `sealed record`, with all values supplied through the constructor. The name must end with `Event`. All events must be named in the past tense. |
+| **Domain Event** | A fact that occurred in the domain and matters to the business. It is conceptually raised by an Aggregate, but in our approach domain events are neither raised nor dispatched from within the aggregate itself, they are created and dispatched at the handler level. | Modeled as a `sealed record`, with all values supplied through the constructor. The name must end with `Event`. All events must be named in the past tense. |
 
 ### 1.4 Additional guidelines
 
@@ -115,7 +115,7 @@ This is the layer responsible for supplying and wiring all key components (depen
 
 ## 6. HostSide
 
-`HostSide` is the umbrella layer that groups together the individual application hosts of a service — separately deployable entry points, each with its own configuration per environment. Splitting the service into multiple hosts keeps background or auxiliary work from competing for the resources and threads of the main service, and gives the system flexibility to scale each part independently, including running multiple instances of a specific host.
+`HostSide` is the umbrella layer that groups together the individual application hosts of a service,separately deployable entry points, each with its own configuration per environment. Splitting the service into multiple hosts keeps background or auxiliary work from competing for the resources and threads of the main service, and gives the system flexibility to scale each part independently, including running multiple instances of a specific host.
 
 ### 6.1 HostSide.WebApi
 

@@ -26,7 +26,7 @@ services.AddCqs(cqs => cqs
     .UseAllBehaviors());
 ```
 
-Calling `AddCqs` always registers MediatR itself (AddMediatR) and scans the specified assembly for CQS handlers. The `UseX()` calls only set flags on `CqsOptions` — the actual `IPipelineBehavior<,>` registration for each one happens inside `AddCqs` in a fixed order, and each behavior can also be registered independently:
+Calling `AddCqs` always registers MediatR itself (AddMediatR) and scans the specified assembly for CQS handlers. The `UseX()` calls only set flags on `CqsOptions`, the actual `IPipelineBehavior<,>` registration for each one happens inside `AddCqs` in a fixed order, and each behavior can also be registered independently:
 
 ```csharp
 services

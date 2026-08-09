@@ -1,6 +1,6 @@
 ## HauteCouture
 
-A multi-tenant SaaS platform for managing service-based businesses, built on a microservice architecture. A tenant can be a retail shop, a hair salon, a workshop, or any other appointment/service-driven business. The platform provides ready-made, abstract building blocks for configuring a service catalog, resources, staff, and booking workflows, on top of strong security, integration with external systems, and real-time notifications.
+TODO / Work in progress
 
 ### 1. Technology stack
 

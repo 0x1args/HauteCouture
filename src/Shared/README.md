@@ -31,7 +31,7 @@ src/Shared/
 
 #### Authorization
 
-Provides the components required for authorization across the system, centered on `ICurrentUserSession` — the current authenticated user's context (user, tenant, roles, session, IP, user agent), available anywhere it's needed. It also defines the platform's shared `UserRole` enumeration. The package is intentionally agnostic of the authentication provider — the hosting application is responsible for constructing the session from its own auth mechanism (currently Keycloak) and registering it via `AddUserSessions`.
+Provides the components required for authorization across the system, centered on `ICurrentUserSession` the current authenticated user's context (user, tenant, roles, session, IP, user agent), available anywhere it's needed. It also defines the platform's shared `UserRole` enumeration. The package is intentionally agnostic of the authentication provider, the hosting application is responsible for constructing the session from its own auth mechanism (currently Keycloak) and registering it via `AddUserSessions`.
 
 **Reference documentation:** https://github.com/0x1args/HauteCouture/blob/main/src/Shared/Common/Authorization/README.md
 

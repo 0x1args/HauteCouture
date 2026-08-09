@@ -2,9 +2,9 @@
 
 Docker and Docker Compose are used for containerization and local development. To keep each compose file focused and reasonably sized, and to have each one map to a clear category of concern, the setup is split into three files:
 
-- **`docker-compose.infra.yaml`** — core infrastructure.
-- **`docker-compose.observability.yaml`** — the observability stack.
-- **`docker-compose.services.yaml`** — everything on the `HostSide` of a service: WebApi hosts, consumers, background jobs, and migrations.
+- **`docker-compose.infra.yaml`**: core infrastructure.
+- **`docker-compose.observability.yaml`**: the observability stack.
+- **`docker-compose.services.yaml`**: everything on the `HostSide` of a service: WebApi hosts, consumers, background jobs, and migrations.
 
 ### 1. Configuring secrets
 

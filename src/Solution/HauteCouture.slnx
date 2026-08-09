@@ -109,33 +109,6 @@
     <File Path="../Directory.Packages.props" />
     <File Path="../global.json" />
   </Folder>
-  <Folder Name="/src/TenantManagement/" />
-  <Folder Name="/src/TenantManagement/Applications/" />
-  <Folder Name="/src/TenantManagement/Applications/Handlers/">
-    <Project Path="../TenantManagement/Applications/Handlers/HauteCouture.TenantManagement.Applications.Handlers.csproj" />
-  </Folder>
-  <Folder Name="/src/TenantManagement/Applications/Services/">
-    <Project Path="../TenantManagement/Applications/Services/HauteCouture.TenantManagement.Applications.Services.csproj" />
-  </Folder>
-  <Folder Name="/src/TenantManagement/Contracts/">
-    <Project Path="../TenantManagement/Contracts/HauteCouture.TenantManagement.Contracts.csproj" />
-  </Folder>
-  <Folder Name="/src/TenantManagement/Domain/">
-    <Project Path="../TenantManagement/Domain/HauteCouture.TenantManagement.Domain.csproj" />
-  </Folder>
-  <Folder Name="/src/TenantManagement/HostSide/">
-    <File Path="../TenantManagement/HostSide/README.md" />
-  </Folder>
-  <Folder Name="/src/TenantManagement/HostSide/WebApi/">
-    <Project Path="../TenantManagement/HostSide/WebApi/HauteCouture.TenantManagement.HostSide.WebApi.csproj" />
-  </Folder>
-  <Folder Name="/src/TenantManagement/Infrastructures/" />
-  <Folder Name="/src/TenantManagement/Infrastructures/DataAccess/">
-    <Project Path="../TenantManagement/Infrastructures/DataAccess/HauteCouture.TenantManagement.Infrastructures.DataAccess.csproj" />
-  </Folder>
-  <Folder Name="/src/TenantManagement/Providers/">
-    <Project Path="../TenantManagement/Providers/HauteCouture.TenantManagement.Providers.csproj" />
-  </Folder>
   <Folder Name="/tests/">
     <File Path="../../tests/README.md" />
   </Folder>
