@@ -2,14 +2,13 @@
 
 Docker and Docker Compose are used for containerization and local development. To keep each compose file focused and reasonably sized, and to have each one map to a clear category of concern, the setup is split into three files:
 
-- **`docker-compose.infra.yaml`**: core infrastructure.
-- **`docker-compose.observability.yaml`**: the observability stack.
-- **`docker-compose.services.yaml`**: everything on the `HostSide` of a service: WebApi hosts, consumers, background jobs, and migrations.
+- `docker-compose.infra.yaml`: core infrastructure.
+- `docker-compose.observability.yaml`: the observability stack.
+- `docker-compose.services.yaml`: everything on the **HostSide** of a service: **WebApi**, **Consumers**, **BackgroundJobs**, **Migrations** and **SignalR** hosts.
 
 ### 1. Configuring secrets
 
 Before starting anything, create an `.env` file in this folder (`infrastructure/docker`) with the values below (usernames, passwords, tokens, etc.). Alternatively, you can generate it by running the `create-docker-env` script for your platform from `infrastructure/scripts/`, then modify the generated values as needed.
-
 
 #### 1.1 Postgres
 ```
@@ -46,7 +45,9 @@ SEQ_ADMIN_PASSWORD={your_password}
 
 For most cases, running `run-all` is the right starting point (it brings up the whole local stack in one command).
 
-**Reference documenation**: https://github.com/0x1args/HauteCouture/blob/main/infrastructure/scripts/README.md
+#### 2.1 Useful resources
+
+- **Reference documenation on scripts**: https://github.com/0x1args/HauteCouture/blob/main/infrastructure/scripts/README.md
 
 ### 3. Stack overview
 

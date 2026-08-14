@@ -51,7 +51,33 @@ Designed so that each subdomain maps to a bounded context one-to-one, so that th
 | **2.10 PaymentGateway** | 1.10 | Atomic and idempotent charging of funds, with no duplicate charges on retries. |
 | **2.11 Notification** | 1.11 | Contains no business logic of any kind, such as when to deliver. Its role is strictly *how* to deliver, and it belongs to the initiating context. |
 
-## 2. Ubiquitous Language
+#### 1.2.1 Upstream / Downstream Bounded Contexts
+
+| Upstream Bounded Context | Downstream Bounded Context | Relationship Type |
+|--|--|--|
+| Staff Management | Scheduling | OHS + PL + ACL |
+| Staff Management | Prescription | Conformist |
+| Patient Registry | Scheduling | OHS + PL + ACL |
+| Patient Registry | Medical Care | OHS + PL + ACL |
+| Patient Registry | Billing | Conformist |
+| Laboratory | Billing | Conformist |
+| Identity | Scheduling | OHS + PL + ACL |
+| Identity | Medical Care | OHS + PL + ACL |
+| Identity | Billing | OHS + PL + ACL |
+| Identity | Tenant Provisioning | OHS + PL + ACL |
+| Notification | Scheduling | OHS + PL + ACL |
+| Notification | Billing | OHS + PL + ACL |
+| Payment Gateway | Billing | OHS + PL + ACL |
+| Scheduling | Medical Care | Customer / Supplier, OHS + PL + ACL |
+| Scheduling | Analytics | Conformist |
+| Medical Care | Billing | Customer / Supplier, OHS + PL + ACL |
+| Medical Care | Prescription | Customer / Supplier, OHS + PL + ACL |
+| Medical Care | Analytics | Conformist |
+| Billing | Analytics | Conformist |
+
+The table reflects the direction of influence: the upstream context dictates the model/contract, while the downstream context adapts (via an ACL or through conformism).
+
+### 2. Ubiquitous Language
 
 This is a dictionary of all the core terms and their meanings + the single source of truth for the language, avoiding ambiguity. This is not a final dictionary; it will keep growing along with the modeling of each context.
 
@@ -67,7 +93,7 @@ This is a dictionary of all the core terms and their meanings + the single sourc
 | Tenant | TenantProvisioning | A single clinic as an isolated occupant of the platform | client, organization, company, clinic |
 | Patient Profile | PatientRegistry | The patient's demographic and contact data, kept separate from their Identity account and from the EMR | patient account, user, account, medical card |
 
-## 3. Context Map
+### 3. Context Map
 
 ```mermaid
 flowchart LR
@@ -140,7 +166,7 @@ style GENERIC fill:none,stroke:#6E7681,stroke-width:1px,stroke-dasharray: 5 5
 linkStyle default stroke:#B1BAC4,stroke-width:2px,color:#FFFFFF
 ```
 
-## 4. Healthcare Standards
+### 4. Healthcare Standards
 
 | Term | Definition |
 |--|--|
@@ -151,4 +177,4 @@ linkStyle default stroke:#B1BAC4,stroke-width:2px,color:#FFFFFF
 | **e-prescription** | An electronic prescription that must be transmitted to pharmacy networks. |
 | **RxNorm / ATC** | Drug classification systems used for e-prescriptions. |
 | **LOINC** | A knowledge base of medical terminology used to identify laboratory tests. |
-| **HL7/FHIR** | Standards for exchanging medical data between systems. FHIR is the more modern standard, a RESTful layer on top of HL7. It is used for integration with laboratories or other similar systems. |
+| **HL7/FHIR** | Standards for exchanging medical data between systems. FHIR is the more modern standard, a RESTful layer on top of HL7. It is used for integration with laboratories or other similar systems.

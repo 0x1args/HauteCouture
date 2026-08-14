@@ -8,8 +8,8 @@ Scripts are split by platform rather than kept as one folder, since a shell scri
 
 ```
 scripts/
-├── unix/       # .sh — macOS and Linux (bash)
-└── windows/    # .ps1 — Windows (PowerShell)
+├── unix/       # .sh  - macOS and Linux (bash)
+└── windows/    # .ps1 - Windows (PowerShell)
 ```
 
 Every script that exists for one platform is expected to have a matching script for the other, sharing the same base name (example: `run-infra.sh` / `run-infra.ps1`) and performing the same operation with the same observable behavior: the same inputs, the same success/failure output, the same exit-code semantics. The two folders should be read as one logical set of tools with two entry points, not as two independently evolving sets of tooling.

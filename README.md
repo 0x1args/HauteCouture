@@ -25,36 +25,73 @@ TODO / Work in progress
 
 The write/read split above is deliberate, not incidental: commands are executed transactionally against PostgreSQL for correctness, while queries are served from denormalized projections in MongoDB, shaped and indexed for how the system is actually read rather than how it is written. This approach applies only to certain microservices, not everywhere.
 
+*This is just a basic set; it will be revised over time!*
+
 ### 2. Documentation
 
-The project keeps one centralized place for quickly orienting yourself in whichever part of the system you need: `docs/docs-structure.md`. It's an index of every detailed document available in the project: the structure of each microservice, the overall system architecture, the shared-libraries module, testing, internal infrastructure, and the technology stack. So it's the right starting point regardless of what you're actually looking for.
+The project includes a centralized navigation for all available documentation in `docs/docs-structure` (available via the link below). I decided to split the documentation into separate documents because it makes navigation much easier than scrolling through a single, text-heavy file. The documentation covers the domain, architecture, services, internal infrastructure, shared packages, and testing.
 
-**Reference documentation:** https://github.com/0x1args/HauteCouture/tree/main/docs/docs-structure.md
+#### 2.1 Useful resources
 
-### 3. Architectural patterns
+- **Reference documentation on docs sturcture:** https://github.com/0x1args/HauteCouture/tree/main/docs/docs-structure.md
 
-- Microservices
+### 3. Used architectural patterns
+
 - Domain-Driven Design
+- Microservices
+- Event-Driven Architecture
 - Clean Architecture
 - CQRS
-- Event-Driven Architecture
 - Outbox / Inbox patterns
 - Saga pattern
 - Circuit Breaker
 - API Gateway
 
-### 4. Quick start
+### 4. Getting started
 
-TODO: will be written once the platform is far enough along to have a stable local setup worth documenting. See `infrastructure/docker/README.md` and `infrastructure/scripts/README.md` in the meantime for what's runnable today.
 
-### 5. Known limitations
+#### For usage
 
-TODO: will be written once the system is functionally complete enough for its limitations to be meaningfully scoped.
+- Ensure that Docker is installed on your machine. You can download it from the official [Docker website](https://docs.docker.com/).
+- Will be written once the platform is far enough along to have a stable local setup worth documenting. See `infrastructure/docker/README.md` and `infrastructure/scripts/README.md` in the meantime for what's runnable today.
+- All services will be available as containers. I will provide their addresses later.
+- *This is just a basic set; it will be revised over time!*
+
+#### For local development
+
+- Ensure that you have the .NET 10 SDK (10.0.x) installed. You can download it from the offical [Microsoft website](https://dotnet.microsoft.com/en-us/download/dotnet/10.0).
+- Also, ensure that Docker is installed on your machine.
+- Run the script to create the `.env` file via `infrastructure/scripts/{system}/create-docker-env.{sh/ps1}`.
+- Start the required containers for the internal infrastructure via `infrastructure/scripts/{system}/run-docker-infra.{sh/ps1}`.
+- Run the script to apply all database migrations via `infrastructure/scripts/{system}/run-docker-migrations.{sh/ps1}`.
+- Start the observability stack by running via `infrastructure/scripts/{system}/run-docker-observability.{sh/ps1}`.
+- Build the entire solution using the following command: `dotnet build src/Solution/HauteCouture.slnx`.
+- Finally, start the required service using your IDE or the CLI with the following command: `dotnet run --project {path}`.
+- Happy hacking!
+- *This is just a basic set; it will be revised over time!*
+
+### 5. Known limitations and bugs
+
+Will be written once the system is functionally complete enough for its limitations to be meaningfully scoped.
+
+- TBD
 
 ### 6. Available services
 
-TODO: will be filled in during finalization, as a table of service name, API URL, and a link to that service's endpoint documentation.
+Will be filled in during finalization, as a table of service name, address, and a link to that service's endpoint documentation.
 
-### 7. License
+| Service name | Address |
+|--|--|
+| TBD | TBD |
+
+### 7. Support
+
+If this project helped you in any way, please leave a star ⭐ as a form of feedback. I tried to add extensive documentation covering the main and important aspects, and chose an interesting domain. A great deal of effort was invested in this project.
+
+### 8. License
 
 This project is licensed under the [MIT License](https://github.com/0x1args/HauteCouture/blob/main/LICENSE).
+
+### 9. Authors
+
+Only me.
