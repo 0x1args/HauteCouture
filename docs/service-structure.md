@@ -128,7 +128,7 @@ On the code side, everything at the domain level must be named in the language o
 
 The layer responsible for configuring access to external stores. In the system, Entity Framework Core is used as the main tool for this. The layer must directly configure all domain models. For configuring Value Objects, the `HasConversion` tool should be used. Then, to work with Value Objects one should operate with them directly, and for reading, use the `Value` property.
 
-#### Design ruless and recomendations
+#### Design rules and recomendations
 
 - Add a reference to the `Shared.Database.{Provider}` project.
 - Add a reference to the `Domain` project. 
@@ -144,7 +144,7 @@ The layer responsible for configuring access to external stores. In the system, 
 
 The layer responsible for orchestrating the data access level with the domain level (that is, **Infrastuctures.DataAccess** and **Domain**). This layer plays the role of executor of business logic, tying it together with infrastructure. It is at this level that logging of all key processes happens.
 
-#### Design ruless and recomendations
+#### Design rules and recomendations
 
 - Add a reference to the `Shared.Database.{Provider}.Abstractions` project.
 - Add a reference to the `Domain` project. 
@@ -159,7 +159,7 @@ The layer responsible for orchestrating the data access level with the domain le
 
 The layer that is the entry point for executing all logic. It is responsible for wrapping and processing operations accordingly depending on their type, and also delegates execution further to services. It is at this level that all events are created and sent.
 
-#### Design ruless and recomendations
+#### Design rules and recomendations
 
 - Add a reference to the `Shared.CQS.Abstractions` project.
 - Add a reference to the `Applications.Services` project.
@@ -170,7 +170,7 @@ The layer that is the entry point for executing all logic. It is responsible for
 
 The layer that is auxiliary and contains all the means for interacting with external systems, that is requests, responses, events and the corresponding mappers for them.
 
-#### Design ruless and recomendations
+#### Design rules and recomendations
 
 - DTOs must not be named with the `*Dto` ending, they must contain the naming `*Request`, `*Response`, `*Event`. 
 - Mapping must be manual, without libraries like AutoMapper.
@@ -188,7 +188,7 @@ The layer that is the single source of supplying all dependencies for DI. It is 
 
 The host that plays the role of first contact with http-requests, and turns their content into specific assembled models that are passed to the layers above, without any http-specifics. This layer in a typical clean architecture is the **Presentation** layer. Furthermore, the layer is limited to only the http-level, no specifics of this level should leak into the higher layers.
 
-#### Design ruless and recomendations
+#### Design rules and recomendations
 
 - Use Minimal API instead of controllers.
 - Move everything out of ``Program.cs`` into extension methods.
@@ -200,7 +200,7 @@ The host that plays the role of first contact with http-requests, and turns thei
 
 A host that acts as a separate convenient place for running migrations. This host can be easily integrated into some system and automate the first launch of the service or during version updates.
 
-#### Design ruless and recomendations
+#### Design rules and recomendations
 
 - Add a reference to the `Shared.Databases.Postgres.Migrations` project.
 - Created as a separate console application with the necessary packages for the host, so as not to drag in the entire unnecessary functionality of the ASP.NET framework.
@@ -210,7 +210,7 @@ A host that acts as a separate convenient place for running migrations. This hos
 
 A host that contains all the necessary consumers that react accordingly to events. A separate host, so as not to load the **WebApi** host with additional work and not to defect its ThreadPool.
 
-#### Design ruless and recomendations
+#### Design rules and recomendations
 
 - Created as a separate console application for an analogous reason as the **Migrations** host.
 - The host must be adapted for scaling.
@@ -220,7 +220,7 @@ A host that contains all the necessary consumers that react accordingly to event
 
 A host that performs all necessary background work at a defined time interval. A separate host, for an analogous reason as **Consumers**.
 
-#### Design ruless and recomendations
+#### Design rules and recomendations
 
 - Each job must correspond to a single operation. No multiple operations.
 - The design must anticipate avoiding simultaneous execution of the same operations.
@@ -229,7 +229,7 @@ A host that performs all necessary background work at a defined time interval. A
 
 A host that plays the role of interacting with clients in real time over WebSockets technology. A separate host, for an analogous reason as **Consumers** and **BackgroundJobs**.
 
-#### Design ruless and recomendations
+#### Design rules and recomendations
 
 - The connection must stably live throughout the client session.
 - The host must be adaptive to scaling.
