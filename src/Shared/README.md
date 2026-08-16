@@ -17,12 +17,12 @@ This is part of the system that already contains ready-made solutions for solvin
 | Category / Package| Documentation reference |
 | :--- | :--- |
 | **Common** | |
-| Authorization | https://github.com/0x1args/HauteCouture/blob/main/src/Shared/Common/Authorization/README.md |
-| Exceptions | https://github.com/0x1args/HauteCouture/blob/main/src/Shared/Common/Exceptions/README.md |
+| Authorization | [Authorization/README.md](https://github.com/0x1args/HauteCouture/blob/main/src/Shared/Common/Authorization/README.md) |
+| Exceptions | [Exceptions/README.md](https://github.com/0x1args/HauteCouture/blob/main/src/Shared/Common/Exceptions/README.md)|
 | Pagination | — |
 | **Databases** | |
-| Postgres | https://github.com/0x1args/HauteCouture/blob/main/src/Shared/Databases/Postgres/Base/README.md |
+| Postgres | [Postgres/README.md](https://github.com/0x1args/HauteCouture/blob/main/src/Shared/Databases/Postgres/Base/README.md) |
 | **Shared base** | |
-| CQS | https://github.com/0x1args/HauteCouture/blob/main/src/Shared/CQS/Base/README.md |
-| Domain | https://github.com/0x1args/HauteCouture/blob/main/src/Shared/Domain/README.md |
-| WebApi | https://github.com/0x1args/HauteCouture/blob/main/src/Shared/WebApi/README.md |
+| CQS | [CQS/README.md](https://github.com/0x1args/HauteCouture/blob/main/src/Shared/CQS/Base/README.md) |
+| Domain | [Domain/README.md](https://github.com/0x1args/HauteCouture/blob/main/src/Shared/Domain/README.md) |
+| WebApi | [WebApi/README.md](https://github.com/0x1args/HauteCouture/blob/main/src/Shared/WebApi/README.md) |

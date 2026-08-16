@@ -12,68 +12,21 @@ last-updated-at: 16-08-2026
 
 This file is the central place describing how documentation is organized across the project. It explains where documentation lives, how it is structured, and how to navigate the project to find the information you need. Documentation is a living artifact: individual documents are expected to be revised over time as the corresponding part of the system evolves, and this file itself should be kept up to date whenever a new documentation category is introduced.
 
-### 1. Architecture
+#### HauteCouture: Consolidated documentation matrix
 
-The overall system architecture, illustrative diagrams together with an explanation of how all services work together as a single system  has its own dedicated place in the documentation. It covers how services interact with one another (synchronously and asynchronously), how they interact with external systems, how security is organized (authentication, authorization, and network boundaries), and what the overall system design and deployment topology look like. This document is the right place to look for the "big picture" before diving into any single service's documentation.
-
-#### 1.1 Useful resources
-
-- **Reference documentation on architecture:** https://github.com/0x1args/HauteCouture/tree/main/docs/architecture.md *(not written yet)*
-
-### 2. Shared libraries
-
-Every layer inside `Shared` must contain the information needed to understand that specific layer and its full usage process: a description of the package, a description of its DI registrations, a description of its individual features, and an explanation of the design choices behind it along with the benefit they provide. Every layer in `Shared` exists to keep the overall architecture flexible and to hold code that is meant to be reused across every service. Before adding something new to a service, always check whether it is already solved in `Shared`. `Shared` packages are typically organized into two sublayers:
-
-- **Abstractions**: used for integration into the corresponding layers of a consuming service (i.e., the interfaces and contracts a service depends on).
-- **Base**: contains the actual configuration and implementation work behind those abstractions.
-
-Documentation must always live inside **Base**, next to the implementation it describes. Beyond these two sublayers, additional ones may be created where needed, so that a service does not have to pull in a large number of components it will never use.
-
-#### 2.1 Useful resources
-
-- **Reference documentation on Shared code base:** https://github.com/0x1args/HauteCouture/tree/main/src/Shared/README.md
-
-### 3. Services
-
-A dedicated document already describes the general structure shared by all services, together with recommendations for building each of its layers. Any service added to the system must strictly follow this structure and these recommendations, it serves as the baseline knowledge document for building or reviewing any service in the system.
-
-#### 3.1 Useful resources
-
-- **Reference documentation on service structure:** https://github.com/0x1args/HauteCouture/tree/main/docs/service-structure.md
-
-#### 3.2 Per-service documentation
-
-Every service must contain its own documentation file at the **HostSide** level. This file must describe:
-
-- the general purpose and responsibilities of the service;
-- an overview of its domain;
-- the endpoints exposed for integration with external systems (including their routes, request shapes, and response shapes);
-- the endpoints intended for internal-only interaction between services;
-- the technology stack the service uses;
-- its background jobs and consumers;
-- any special/third-party libraries it relies on;
-- its external dependencies (other services, external APIs, data stores).
-
-### 4. Tests
-
-Tests in the system are classified into Unit tests and Integration tests. The project has an integrated analytics system that tracks code coverage percentage over time. All tests are placed under `/tests` at the root of the repository, and their internal structure mirrors the layer being tested, whether that layer belongs to `Shared` or to a specific service (e.g. a test project for **Applications.Handlers** of a given service, or for a specific `Shared.*` package).
-
-#### 4.1 Useful resources
-
-- **Reference documentation on tests:** https://github.com/0x1args/HauteCouture/blob/main/tests/README.md
-
-### 5. Internal infrastructure
-
-Local development relies on a combination of Docker and Kubernetes to orchestrate the microservice architecture. All related configuration files live under the `/infrastructure` folder at the root of the repository, which is split into three subfolders:
-
-- `/docker`: configuration for running services and their dependencies (databases, message brokers, etc.) locally via Docker/Docker Compose.
-- `/kubernetes`: manifests and configuration used to orchestrate the services in a cluster, for environments beyond local development.
-- `/scripts`: automation scripts that support environment setup and day-to-day development tasks.
-- `/terraform`: Infrastructure as Code, configuration used to provision and manage cloud infrastructure in a consistent, reproducible, and version-controlled manner.
-
-#### 5.1 Useful resources
-
-- **Reference documentation on Docker:** https://github.com/0x1args/HauteCouture/blob/main/infrastructure/docker/README.md
-- **Reference documentation on Kubernetes:** https://github.com/0x1args/HauteCouture/blob/main/infrastructure/kubernetes/README.md *(not written yet)*
-- **Reference documentation on Scripts:** https://github.com/0x1args/HauteCouture/blob/main/infrastructure/scripts/README.md
-- **Reference documentation on Terraform:** https://github.com/0x1args/HauteCouture/blob/main/infrastructure/terraform/README.md *(not written yet)*
+| Category / Section | Link | Description and Purpose | Use Case (When to use) | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **1. Architecture** | | | | |
+| System Architecture | [architecture.md](https://github.com/0x1args/HauteCouture/tree/main/docs/architecture.md) | System topology, functional and non-functional requirements, distributed interaction patterns, context boundaries and external integrations. | Designing high-level modules/microservices, overview of the overall system picture. | In progress |
+| **2. Shared components** | | | | |
+| Shared Code Base | [Shared/README.md](https://github.com/0x1args/HauteCouture/tree/main/src/Shared/README.md) | Contracts and implementations of shared code (Abstractions, Base). Architectural decisions regarding DI and reuse. | Searching for ready-made solutions or extending base functionality before implementation in a specific service. | Done |
+| **3. Services** | | | | |
+| Service Structure | [service-structure.md](https://github.com/0x1args/HauteCouture/tree/main/docs/service-structure.md) | Reference service architecture, rules of layer responsibilities and dependencies. | Bootstrapping a new service, getting acquainted with the general architecture within the service. | Done |
+| Service Docs | *README.md in each service folder* | Domain specifics, API contracts (internal/external), background processes (consumers/jobs/signalr) + external dependencies. | Integration with a service, changing its domain boundaries or extending existing API. | Up to date |
+| **4. Testing** | | | | |
+| Tests Overview | [tests/README.md](https://github.com/0x1args/HauteCouture/blob/main/tests/README.md) | Testing strategy (Unit + Integration) and code coverage policies and mapping of test projects to the solution structure. | Setting up the test environment, writing new tests or updating QA infrastructure. | Done |
+| **5. Infrastructure** | | | | |
+| Docker | [docker/README.md](https://github.com/0x1args/HauteCouture/blob/main/infrastructure/docker/README.md) | Local environment (Docker Compose) + other infra-dependencies. | Deploying and troubleshooting the local development environment. | Done |
+| Kubernetes | [kubernetes/README.md](https://github.com/0x1args/HauteCouture/blob/main/infrastructure/kubernetes/README.md) | Cluster manifests, configuration and secrets management. | Deploying and orchestrating services in different environments. | In progress |
+| Terraform (IaC) | [terraform/README.md](https://github.com/0x1args/HauteCouture/blob/main/infrastructure/terraform/README.md) | IaC configurations for automated provisioning of cloud resources. | Modifying cloud infrastructure, changing IAM policies or adding new resources. | In progress |
+| Scripts | [scripts/README.md](https://github.com/0x1args/HauteCouture/blob/main/infrastructure/scripts/README.md) | Set of utilities for automation under Windows + Unix. | Optimizing local processes or extending CI/CD pipelines. | Done |
