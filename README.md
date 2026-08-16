@@ -33,7 +33,7 @@ The project includes a centralized navigation for all available documentation in
 
 #### 2.1 Useful resources
 
-- **Reference documentation on docs sturcture:** https://github.com/0x1args/HauteCouture/tree/main/docs/docs-structure.md
+- **Reference documentation on docs structure:** https://github.com/0x1args/HauteCouture/tree/main/docs/docs-structure.md
 
 ### 3. Used architectural patterns
 
