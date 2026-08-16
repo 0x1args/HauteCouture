@@ -1,3 +1,13 @@
+---
+title: Documentation
+document-type: Documentation Index
+system: HauteCouture
+scope: Global
+tags: [ documentation, architecture, services, shared-libraries, tests, infrastructure ]
+created-at: 20-07-2026
+last-updated-at: 16-08-2026
+---
+
 ## Documentation
 
 This file is the central place describing how documentation is organized across the project. It explains where documentation lives, how it is structured, and how to navigate the project to find the information you need. Documentation is a living artifact: individual documents are expected to be revised over time as the corresponding part of the system evolves, and this file itself should be kept up to date whenever a new documentation category is introduced.
@@ -56,10 +66,10 @@ Tests in the system are classified into Unit tests and Integration tests. The pr
 
 Local development relies on a combination of Docker and Kubernetes to orchestrate the microservice architecture. All related configuration files live under the `/infrastructure` folder at the root of the repository, which is split into three subfolders:
 
-- **`/docker`**: configuration for running services and their dependencies (databases, message brokers, etc.) locally via Docker/Docker Compose.
-- **`/kubernetes`**: manifests and configuration used to orchestrate the services in a cluster, for environments beyond local development.
-- **`/scripts`**: automation scripts that support environment setup and day-to-day development tasks.
-- **`/terraform`**: Infrastructure as Code (IaC) configuration used to provision and manage cloud infrastructure in a consistent, reproducible, and version-controlled manner.
+- `/docker`: configuration for running services and their dependencies (databases, message brokers, etc.) locally via Docker/Docker Compose.
+- `/kubernetes`: manifests and configuration used to orchestrate the services in a cluster, for environments beyond local development.
+- `/scripts`: automation scripts that support environment setup and day-to-day development tasks.
+- `/terraform`: Infrastructure as Code, configuration used to provision and manage cloud infrastructure in a consistent, reproducible, and version-controlled manner.
 
 #### 5.1 Useful resources
 

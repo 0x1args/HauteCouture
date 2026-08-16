@@ -1,3 +1,15 @@
+---
+title: Strategic Design
+document-type: Design Document
+system: HauteCouture
+scope: Global
+related-dosc:
+    - architecture
+tags: [ ddd, strategic-design, subdomains, bounded-contexts, context-mapping, ubiquitous-language ]
+created-at: 10-08-2026
+last-updated-at: 16-08-2026
+---
+
 ## Strategic Design
 
 This document serves the role that in Confluence would be laid out as a "Domain Knowledge Base." It describes the full narrative of the business activity, a complete list of all subdomains with their classification, and the mapping of subdomains to bounded contexts through the concepts of problem space and solution space. In the strategic design, the subdomain-to-bounded-context mapping strives to be 1:1. This is designed so that the system maps cleanly onto a microservices architecture. All business activity is described entirely according to the Domain-Driven Design methodology and its corresponding patterns.

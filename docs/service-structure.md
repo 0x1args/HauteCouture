@@ -1,3 +1,15 @@
+---
+title: Service structure
+document-type: Design Document
+system: HauteCouture
+scope: Global
+related-dosc:
+    - strategic-design
+tags: [ ddd, clean-architecture, cqs ]
+created-at: 20-07-2026
+last-updated-at: 16-08-2026
+---
+
 ## Service structure
 
 This file describes the standard structure of all services within the current system, meaning all services must follow this standard. All layers are designed to follow Separation Of Concerns and logically distribute responsibilities. The structure is built as a horizontal architecture similar to Clean Architecture, only slightly modified. Also, all the complexity of the system is concentrated at the domain level. Overall the architecture follows Domain-Driven-Design and Command and Query Separation.
