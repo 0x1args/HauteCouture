@@ -18,7 +18,7 @@ This document serves the role that in Confluence would be laid out as a "Domain 
 
 A platform for various private medical clinics, implemented as a multitenant SaaS. It covers the operational, clinical, and financial activity cycle of private medical clinics. A tenant in the system can manage its own isolated environment with a subscription and modular features. In terms of the domain itself, it describes the patient's journey from booking a slot with an optional prepayment, where available time is formed based on the intersection of the clinic's schedule and synchronization of doctors' personal calendars. During a visit, the system is expected to maintain an electronic medical record, record diagnoses according to ICD-10 protocols, prescribe treatment, and integrate with e-referrals and e-prescriptions. Completion of a medical service automatically triggers financial and operational processes, such as generating an invoice based on the tariffs in effect at the time of the appointment, and charging funds. In addition, the system provides a management dimension where administrators can verify the validity of staff medical licenses, manage shifts, and analyze business performance (via revenue, doctor workload, patient no-show statistics, number of issued referrals and prescriptions, reviews). On the patient side, there are appointment reminders sent a certain time in advance, and after the visit is completed the patient receives a generated invoice based on the clinic's tariffs valid at the time the service was provided.
 
-### 1.1 Problem Space
+### 1.1. Problem Space
 
 Here is a brief terminological description to explain the categorization into subdomains and how it maps onto the system:
 - **Core**: the core business logic and all the complexity of the domain. This is what distinguishes the business from its competitors and is the main source of profit. This refers only to in-house development.
@@ -44,7 +44,7 @@ Here is a brief terminological description to explain the categorization into su
 - Patient informed consent, and processing of special-category personal data under the "On Personal Data Protection" law, in the EU this corresponds to GDPR Art. 9.
 - A cross-cutting requirement for who accessed which record and when, needed for trust and for investigations.
 
-### 1.2 Solution Space
+### 1.2. Solution Space
 
 Designed so that each subdomain maps to a bounded context one-to-one, so that the solution space reflects the problem space as precisely as possible. Each bounded context has its own ubiquitous language internally.
 
@@ -63,7 +63,7 @@ Designed so that each subdomain maps to a bounded context one-to-one, so that th
 | **2.10 PaymentGateway** | 1.10 | Atomic and idempotent charging of funds, with no duplicate charges on retries. |
 | **2.11 Notification** | 1.11 | Contains no business logic of any kind, such as when to deliver. Its role is strictly *how* to deliver, and it belongs to the initiating context. |
 
-#### 1.2.1 Upstream / Downstream Bounded Contexts
+#### 1.2.1. Upstream / Downstream Bounded Contexts
 
 | Upstream Bounded Context | Downstream Bounded Context | Relationship Type |
 |--|--|--|

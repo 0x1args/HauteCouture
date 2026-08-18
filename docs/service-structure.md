@@ -105,7 +105,7 @@ linkStyle default stroke:#B1BAC4,stroke-width:2px,color:#FFFFFF
 
 The goal of this layer is to place all the complexity of the system in one location. This layer contains all the knowledge of the business domain. There is already a file in the documentation that describes the full strategic design of the domain. This layer is a projection of the corresponding subdomain. Speaking of implementation, this layer must be independent of the others and have no technical knowledge. The layer must not contain db-specific tools or depend on libraries like Entity Framework Core. The rest of the layers must exist to satisfy the requirements of the domain level and they must adapt to the domain, not the domain to them.
 
-### 2.1 Tactical design
+### 2.1. Tactical design
 
 The tactical level defines a set of common patterns for implementing code specifically within a given bounded context.
 
@@ -130,13 +130,13 @@ The tactical level defines a set of common patterns for implementing code specif
 - Methods must not contain a flag in the form of a `bool` parameter. In such a case a separate method should be created instead.
 - Do not use anemic models, this is an anti-pattern!
 
-### 2.2 Ubiquitous language
+### 2.2. Ubiquitous language
 
 On the code side, everything at the domain level must be named in the language of the business. Models must correspond to names from the subject area, functions must describe business processes. It is forbidden to use synonyms or abbreviations.
 
 ## 3. Infrastuctures
 
-### 3.1 DataAccess
+### 3.1. DataAccess
 
 The layer responsible for configuring access to external stores. In the system, Entity Framework Core is used as the main tool for this. The layer must directly configure all domain models. For configuring Value Objects, the `HasConversion` tool should be used. Then, to work with Value Objects one should operate with them directly, and for reading, use the `Value` property.
 
@@ -152,7 +152,7 @@ The layer responsible for configuring access to external stores. In the system, 
 
 ## 4. Applications
 
-### 4.1 Services
+### 4.1. Services
 
 The layer responsible for orchestrating the data access level with the domain level (that is, **Infrastuctures.DataAccess** and **Domain**). This layer plays the role of executor of business logic, tying it together with infrastructure. It is at this level that logging of all key processes happens.
 
@@ -167,7 +167,7 @@ The layer responsible for orchestrating the data access level with the domain le
 - Do not use caching directly inside services through `IDistributedCache` or similar.
 - Services must not contain http-specifics.
 
-### 4.2 Handlers
+### 4.2. Handlers
 
 The layer that is the entry point for executing all logic. It is responsible for wrapping and processing operations accordingly depending on their type, and also delegates execution further to services. It is at this level that all events are created and sent.
 
@@ -196,7 +196,7 @@ The layer that is the single source of supplying all dependencies for DI. It is 
 
 ## 7. HostSide
 
-### 7.1 WebApi
+### 7.1. WebApi
 
 The host that plays the role of first contact with http-requests, and turns their content into specific assembled models that are passed to the layers above, without any http-specifics. This layer in a typical clean architecture is the **Presentation** layer. Furthermore, the layer is limited to only the http-level, no specifics of this level should leak into the higher layers.
 
@@ -208,7 +208,7 @@ The host that plays the role of first contact with http-requests, and turns thei
 - Request handling must remain as clean as possible.
 - Use the `ISender` interface instead of `IMediatr` for calling processing.
 
-### 7.2 Migrations
+### 7.2. Migrations
 
 A host that acts as a separate convenient place for running migrations. This host can be easily integrated into some system and automate the first launch of the service or during version updates.
 
@@ -218,7 +218,7 @@ A host that acts as a separate convenient place for running migrations. This hos
 - Created as a separate console application with the necessary packages for the host, so as not to drag in the entire unnecessary functionality of the ASP.NET framework.
 - Migrations are run every time the host is started.
 
-### 7.3 Consumers
+### 7.3. Consumers
 
 A host that contains all the necessary consumers that react accordingly to events. A separate host, so as not to load the **WebApi** host with additional work and not to defect its ThreadPool.
 
@@ -228,7 +228,7 @@ A host that contains all the necessary consumers that react accordingly to event
 - The host must be adapted for scaling.
 - Consumers must always remain active, as must the host itself.
 
-### 7.4 BackgroundJobs
+### 7.4. BackgroundJobs
 
 A host that performs all necessary background work at a defined time interval. A separate host, for an analogous reason as **Consumers**.
 
@@ -237,7 +237,7 @@ A host that performs all necessary background work at a defined time interval. A
 - Each job must correspond to a single operation. No multiple operations.
 - The design must anticipate avoiding simultaneous execution of the same operations.
 
-### 7.5 SignalR
+### 7.5. SignalR
 
 A host that plays the role of interacting with clients in real time over WebSockets technology. A separate host, for an analogous reason as **Consumers** and **BackgroundJobs**.
 
